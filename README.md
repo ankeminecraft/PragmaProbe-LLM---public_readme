@@ -19,7 +19,7 @@ This framework directly addresses the performance gaps highlighted in the **Prag
 ```text
 [Hugging Face: Reuters] ──> (Regex Anchor) ──> [Pandas Staging] ──> (Base LLM Probing)
                                                                            │
-[SFT Model Checkpoint] <── (SFT / DPO Training) <── [MySQL GraphRAG] <── (AI-as-a-Judge)
+[SFT Model Checkpoint] <── (QLoRA / SFT Training) <── [MySQL GraphRAG] <── (AI-as-a-Judge)
 ```
 
 1. **Production Ingestion:** Streams real-world financial text archives programmatically via the Hugging Face `datasets` API (Reuters Financial Corpus).
