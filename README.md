@@ -31,7 +31,7 @@ This framework directly addresses the performance gaps highlighted in the **Prag
 ---
 
 ## Relational Database Schema (MySQL)
-The localized knowledge graph maps source warfare concepts to target economic meanings using a clean, indexed edge table:
+The knowledge graph maps source warfare concepts to target economic meanings using a clean, indexed edge table:
 
 ```sql
 CREATE TABLE WarMetaphorGraph (
