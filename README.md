@@ -1,4 +1,4 @@
-# PragmaProbe-LLM: Mitigating Flouted Maxim Vulnerabilities in Generative AI
+# PragmaProbe-LLM: Mitigating Literal Traps and Pattern Collapse in LLMs via end-to-end KG and QLoRA Pipeline for Figurative Language Alignment
 
 [![Dataset](https://shields.io)](https://huggingface.co)
 [![Database](https://shields.io)](https://mysql.com)
