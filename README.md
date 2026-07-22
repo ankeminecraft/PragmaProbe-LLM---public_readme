@@ -1,4 +1,4 @@
-# PragmaProbe-LLM: Mitigating Literal Traps in LLMs via end-to-end KG and QLoRA Pipeline for Figurative Language Alignment
+# PragmaProbe-LLM: Mitigating Literal Traps in LLMs via end-to-end GraphRAG and QLoRA Pipeline for Figurative Language Alignment
 
 [![Dataset](https://shields.io)](https://huggingface.co)
 [![Database](https://shields.io)](https://mysql.com)
@@ -34,7 +34,7 @@ This framework directly addresses the performance gaps highlighted in the **Prag
 ---
 
 ## Relational Database Schema (MySQL)
-The knowledge graph maps source warfare concepts to target economic meanings using a clean, indexed edge table:
+The MySQL schema maps source-domain warfare concepts to context-dependent economic interpretations through an indexed alignment table storing curated conceptual relationships.
 
 ```sql
 CREATE TABLE WarMetaphorGraph (
