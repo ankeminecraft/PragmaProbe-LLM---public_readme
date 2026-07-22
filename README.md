@@ -1,4 +1,4 @@
-# PragmaProbe-LLM: Mitigating Literal Traps in LLMs via end-to-end GraphRAG and QLoRA Pipeline for Figurative Language Alignment
+# PragmaProbe-LLM: Mitigating Literal Traps in LLMs via End-to-End Context-Aware Retrieval and QLoRA Pipeline for Figurative Language Alignment
 
 [![Dataset](https://shields.io)](https://huggingface.co)
 [![Database](https://shields.io)](https://mysql.com)
@@ -22,13 +22,13 @@ This framework directly addresses the performance gaps highlighted in the **Prag
 ```text
 [Hugging Face: Reuters] ──> (Regex Anchor) ──> [Pandas Staging] ──> (Base LLM Probing)
                                                                            │
-[SFT Model Checkpoint] <── (QLoRA / SFT Training) <── [MySQL-backed GraphRAG] <── (AI-as-a-Judge)
+[SFT Model Checkpoint] <── (QLoRA / SFT Training) <── [MySQL-backed GraphRAG-inspired retrieval prototype] <── (AI-as-a-Judge)
 ```
 
 1. **Production Ingestion:** Streams real-world financial text archives programmatically via the Hugging Face `datasets` API (Reuters Financial Corpus).
 2. **Linguistic Feature Extraction:** Employs advanced **Regular Expression Anchors** to scan text arrays and flag transitive or copular warfare terminology mapped onto business contexts.
 3. **Adversarial Probing & Evaluation:** Interrogates base un-aligned models and routes outputs through an automated **AI-as-a-Judge Evaluator Gate** to score conversational resolution (Pass: 1 / Fail: 0).
-4. **GraphRAG Patching:** Intercepts failing literal vectors (Score 0) and runs a localized **MySQL parameter query** to extract target semantic definitions (e.g., mapping *'slaughter'* to *'heavy stock losses'*).
+4. **Alignment Graph Patching:** Intercepts failed literal interpretations (Score 0) and runs a localized **MySQL parameter query** to extract target semantic definitions (e.g., mapping *'slaughter'* to *'heavy stock losses'*).
 5. **Supervised Fine-Tuning (QLoRA / SFT):** Compiles failures and graph contexts into a structural preference dataset, executing **Low-Rank Adaptation (LoRA)** fine-tuning to permanently realign the transformer's attention matrices.
 
 ---
@@ -48,6 +48,6 @@ CREATE TABLE WarMetaphorGraph (
 ---
 
 ## Core Performance Engineering Outcomes
-* **Automated Curation Loop:** Replaces manual human-in-the-loop text annotation with a deterministic, scalable regex-to-graph data synthesis pipeline.
+* **Automated Curation Loop:** Reduces manual annotation requirements through a deterministic regex-to-graph synthesis pipeline that generates structured conceptual alignment data.
 * **Over-Refusal Correction:** Addresses optimization biases by training models to distinguish between literal physical conflict and metaphorical corporate reporting.
-* **Production-Ready Training Corpus:** Generates industry-standard conversational preference data layouts compatible with standard optimization toolkits.
+* **Training-Ready Preference Corpus:** Generates structured conversational preference data layouts compatible with standard LLM optimization toolkits.
