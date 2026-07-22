@@ -5,6 +5,8 @@
 [![Benchmark](https://shields.io)](https://huggingface.co)
 
 ## Summary
+
+**Core Objective & Linguistic Scope**
 **PragmaProbe-LLM** is an enterprise-grade NLP diagnostic and optimization pipeline designed to evaluate and align Large Language Models (LLMs) for **Pragmatic Conversational Implicature Resolution** This framework helps language models identify, evaluate, and correctly interpret complex non-literal language within domains like business and financial journalism. 
 
 While modern models excel at surface-level semantics, they fail structural pragmatic benchmarks when humans intentionally flout linguistic rules. This project implements a closed-loop framework targeting the ECONOMY IS WAR conceptual metaphor domain (empirically mapped in my text-analytical master's thesis in pragmatics), systematically correcting instances where a model falls into a literal interpretation trap by breaking the Gricean Maxim of Quality.
