@@ -3,6 +3,14 @@
 [![Dataset](https://shields.io)](https://huggingface.co)
 [![Database](https://shields.io)](https://mysql.com)
 [![Benchmark](https://shields.io)](https://huggingface.co)
+## Table of Contents
+- [Summary](#summary)
+- [Grounded in the PUB Benchmark](#grounded-in-the-pub-benchmark)
+- [End-to-End Pipeline Architecture](#end-to-end-pipeline-architecture)
+- [Pipeline Execution Steps](#pipeline-execution-steps)
+- [Relational Database Schema (MySQL)](#relational-database-schema-mysql)
+- [Future Scaling & Theoretical Extensibility](#future-scaling--theoretical-extensibility)
+
 
 ## Summary
 
