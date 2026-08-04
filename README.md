@@ -11,7 +11,6 @@
 - [Relational Database Schema (MySQL)](#relational-database-schema-mysql)
 - [Future Scaling & Theoretical Extensibility](#future-scaling--theoretical-extensibility)
 
-
 ## Summary
 
 **Core Objective & Linguistic Scope**
