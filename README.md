@@ -19,17 +19,38 @@ This framework directly addresses the performance gaps highlighted in the **Prag
 
 ## End-to-End Pipeline Architecture
 
-```text
-[Hugging Face: Reuters] ──> (Regex Anchor) ──> [Pandas Staging] ──> (Base LLM Probing)
-                                                                           │
-[SFT Model Checkpoint] <── (QLoRA / SFT Training) <── [MySQL-backed GraphRAG-inspired retrieval prototype] <── (AI-as-a-Judge)
 ```
 
-1. **Production Ingestion:** Streams real-world financial text archives programmatically via the Hugging Face `datasets` API (Reuters Financial Corpus).
-2. **Linguistic Feature Extraction:** Employs advanced **Regular Expression Anchors** to scan text arrays and flag transitive or copular warfare terminology mapped onto business contexts.
-3. **Adversarial Probing & Evaluation:** Interrogates base un-aligned models and routes outputs through an automated **AI-as-a-Judge Evaluator Gate** to score conversational resolution (Pass: 1 / Fail: 0).
-4. **Alignment Graph Patching:** Intercepts failed literal interpretations (Score 0) and runs a localized **MySQL parameter query** to extract target semantic definitions (e.g., mapping *'slaughter'* to *'heavy stock losses'*).
-5. **Supervised Fine-Tuning (QLoRA / SFT):** Compiles failures and graph contexts into a structural preference dataset, executing **Low-Rank Adaptation (LoRA)** fine-tuning to permanently realign the transformer's attention matrices.
+[Hugging Face Data Ingestion] 
+           │
+           ▼
+[Step 1: Regex Keyword Anchor] 
+           │
+           ▼
+[Step 2: MIP Vector Distance Filter] ───(High Similarity/Literal)───> [Dropped / Logged]
+           │
+     (Zone of Ambiguity)
+           ▼
+[Step 3: MySQL Graph Augmentation] 
+           │
+           ▼
+[Step 4: QLoRA Fine-Tuning Loop] ───> [Realigned Pragmatic Model Checkpoint]
+
+```
+
+## Pipeline Execution Steps
+
+1. Ingestion & Rough Selection (Regex Phase)
+   Programmatically stream financial headlines from the Hugging Face Reuters dataset. Run a rapid regular expression filter using a targeted warfare lexicon (e.g., "battle", "attack", "casualties") to isolate potential candidates matching the 'ECONOMY IS WAR' conceptual framework.
+
+2. Verification & Ambiguity Isolation (MIP-VU Filter)
+   Bypass blind graph mapping by validating candidates using the Metaphor Identification Procedure (MIP-VU). Compare each headline's sentence embedding against a literal baseline embedding. Filter out highly literal news entries, and capture only the high-entropy "Zone of Ambiguity" cases where the pre-trained model struggles to distinguish literal context from conversational implicature.
+
+3. Pragmatic Knowledge Retrieval (MySQL Mapping)
+   Route only the validated ambiguous headlines to your MySQL database. Query the 'WarMetaphorGraph' relational table using the extracted keyword to pull the precise, structured economic interpretation (e.g., mapping "casualties" directly to "corporate layoffs"). 
+
+4. Model Realignment (QLoRA Fine-Tuning)
+   Format the ambiguous headlines alongside their retrieved MySQL graph definitions into structured instruction-tuning pairs. Execute a lightweight, parameter-efficient fine-tuning loop (QLoRA) targeting the attention matrices of a small base LLM, permanently teaching it to resolve these pragmatic boundary exceptions.
 
 ---
 
