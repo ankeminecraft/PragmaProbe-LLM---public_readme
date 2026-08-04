@@ -8,9 +8,12 @@
 
 **Core Objective & Linguistic Scope**
 
-**PragmaProbe-LLM** is an enterprise-grade NLP diagnostic and optimization pipeline designed to evaluate and align Large Language Models (LLMs) for **Pragmatic Conversational Implicature Resolution** This framework helps language models identify, evaluate, and correctly interpret complex non-literal language within domains like business and financial journalism. 
+**PragmaProbe-LLM** is a lightweight prototype designed to demonstrate how classical linguistic and pragmatic theories can systematically resolve contextual reasoning errors in pre-trained Large Language Models (LLMs). Specifically, the project targets the **ECONOMY IS WAR** conceptual metaphor framework within financial journalism. 
 
-While modern models excel at surface-level semantics, they fail structural pragmatic benchmarks when humans intentionally flout linguistic rules. This project implements a closed-loop framework targeting the ECONOMY IS WAR conceptual metaphor domain (empirically mapped in my text-analytical master's thesis in pragmatics), systematically correcting instances where a model falls into a literal interpretation trap by breaking the Gricean Maxim of Quality.
+Pre-trained models frequently suffer from "literal traps"—failing to distinguish between literal physical warfare and metaphorical economic competition, which flouts the Gricean Maxim of Quality (conversational implicature). To address this, the pipeline introduces a verification gate using the **Metaphor Identification Procedure (MIP-VU)** to calculate semantic distance. 
+
+By filtering out obvious literal news and isolating the "Zone of Ambiguity" where the model struggles, the pipeline retrieves targeted contextual definitions from a relational MySQL knowledge graph. These structural mappings are converted into instruction-tuning pairs to realign the model's attention matrices via Low-Rank Adaptation (QLoRA). This proof-of-concept demonstrates that grounding NLP workflows in established linguistic theory creates efficient, small-scale alignment loops for downstream domain specialization.
+
 
 ### Grounded in the PUB Benchmark
 This framework directly addresses the performance gaps highlighted in the **Pragmatics Understanding Benchmark (PUB)** (Sravanthi et al., 2024). As documented in PUB Task 6 (Sarcasm and Metaphor Comprehension), models frequently suffer from *Over-Correction Pattern Collapse* and *Generation Degeneration* when processing non-literal text. PragmaProbe-LLM resolves these vulnerabilities by transitioning models from rigid token autocompletion to true pragmatic contextual reasoning.
@@ -68,7 +71,15 @@ CREATE TABLE WarMetaphorGraph (
 
 ---
 
-## Core Performance Engineering Outcomes
-* **Automated Curation Loop:** Reduces manual annotation requirements through a deterministic regex-to-graph synthesis pipeline that generates structured conceptual alignment data.
-* **Over-Refusal Correction:** Addresses optimization biases by training models to distinguish between literal physical conflict and metaphorical corporate reporting.
-* **Training-Ready Preference Corpus:** Generates structured conversational preference data layouts compatible with standard LLM optimization toolkits.
+## Future Scaling & Theoretical Extensibility
+
+### 1. Scaling Alignment: Transitioning from SFT to Reinforcement Learning
+While this prototype relies on Supervised Fine-Tuning (SFT), the data isolated in the "Zone of Ambiguity" can naturally scale to Reinforcement Learning (RL) frameworks:
+* **Preference Pair Generation**: The MIP-VU distance calculations can automatically compile contrastive pairs. A headline flagged as an ambiguous metaphor creates a "Chosen" slot (the correct pragmatic MySQL interpretation) and a "Rejected" slot (the literal trap interpretation).
+* **Synthetic RL (DPO/RLHF)**: This structured pair format can be fed directly into Direct Preference Optimization (DPO) or used to train a Reward Model for RLHF. Instead of relying on manual human labeling, the pipeline acts as an automated, linguistically grounded data generator to teach the model how to make the correct contextual choice at scale.
+
+### 2. Domain Scaling: Leveraging MetaNet and LCC Databases
+The **ECONOMY IS WAR** schema serves as an introductory case study. To scale this approach across broader human discourse, the regular expression and embedding pipeline can be expanded to cover other foundational source-to-target mappings:
+* **Multi-Domain Mapping**: By ingesting structural mappings from extensive repositories like the **Berkeley Conceptual Metaphor MetaNet** or the **Large Scale Conceptual Metaphor (LCC) Database**, the pipeline can target other vital frameworks (e.g., *POLITICS IS MEDICINE*, *TIME IS MONEY*, or *ARGUMENT IS WAR*).
+* **Cross-Domain Specialization**: Replacing the specialized financial lexicon with these broader relational databases allows the core architecture to systematically clean and align models for political science, legal analysis, or medical communication fields.
+
