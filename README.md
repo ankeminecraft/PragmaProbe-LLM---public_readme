@@ -60,7 +60,7 @@ A manual analysis of selected sentenses was conducted to evaluate the initial ca
    Bypass blind graph mapping by validating candidates using the Metaphor Identification Procedure (MIP-VU). Compare each headline's sentence embedding against a literal baseline embedding. Filter out highly literal news entries, and capture only the high-entropy "Zone of Ambiguity" cases where the pre-trained model struggles to distinguish literal context from conversational implicature.
 
 3. Pragmatic Knowledge Retrieval (MySQL Mapping)
-   Route only the validated ambiguous headlines to your MySQL database. Query the 'WarMetaphorGraph' relational table using the extracted keyword to pull the precise, structured economic interpretation (e.g., mapping "drone swarming" directly to "highly competitive marketing strategy"). 
+   Route only the validated ambiguous headlines to MySQL database. Query the 'WarMetaphorGraph' relational table using the extracted keyword to pull the precise, structured economic interpretation (e.g., mapping "drone swarming" directly to "highly competitive marketing strategy"). 
 
 4. Model Realignment (QLoRA Fine-Tuning)
    Format the ambiguous headlines alongside their retrieved MySQL graph definitions into structured instruction-tuning pairs. Execute a lightweight, parameter-efficient fine-tuning loop (QLoRA) targeting the attention matrices of a small base LLM, permanently teaching it to resolve these pragmatic boundary exceptions.
