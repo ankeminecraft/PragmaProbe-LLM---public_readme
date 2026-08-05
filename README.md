@@ -5,7 +5,6 @@
 [![Benchmark](https://shields.io)](https://huggingface.co)
 ## Table of Contents
 - [Summary](#summary)
-- [Grounded in the PUB Benchmark](#grounded-in-the-pub-benchmark)
 - [End-to-End Pipeline Architecture](#end-to-end-pipeline-architecture)
 - [Pipeline Execution Steps](#pipeline-execution-steps)
 - [Relational Database Schema (MySQL)](#relational-database-schema-mysql)
@@ -17,13 +16,17 @@
 
 **PragmaProbe-LLM** is a lightweight prototype designed to demonstrate how classical linguistic and pragmatic theories can systematically resolve contextual reasoning errors in pre-trained Large Language Models (LLMs). Specifically, the project targets the **ECONOMY IS WAR** conceptual metaphor framework within financial journalism. 
 
-Pre-trained models frequently suffer from "literal traps"—failing to distinguish between literal physical warfare and metaphorical economic competition, which flouts the Gricean Maxim of Quality (conversational implicature). To address this, the pipeline introduces a verification gate using the **Metaphor Identification Procedure (MIP-VU)** to calculate semantic distance. 
+Pre-trained models frequently suffer from "literal traps"—failing to distinguish between literal physical warfare and metaphorical economic competition, which flouts the Gricean Maxim of Quality (conversational implicature). They rely heavily on statistical patterns and frequency, their inability to interpret nascent or ambiguous metaphors reveals a critical limitation in capturing cross-domain semantic shifts. To overcome this, integrating a structured knowledge graph provides explicit mappings of conceptual domains, allowing the model to ground figurations in relational structures rather than relying solely on surface-level statistical correlations.
 
 By filtering out obvious literal news and isolating the "Zone of Ambiguity" where the model struggles, the pipeline retrieves targeted contextual definitions from a relational MySQL knowledge graph. These structural mappings are converted into instruction-tuning pairs to realign the model's attention matrices via Low-Rank Adaptation (QLoRA). This proof-of-concept demonstrates that grounding NLP workflows in established linguistic theory creates efficient, small-scale alignment loops for downstream domain specialization.
 
 
-### Grounded in the PUB Benchmark
-This framework directly addresses the performance gaps highlighted in the **Pragmatics Understanding Benchmark (PUB)** (Sravanthi et al., 2024). As documented in PUB Task 6 (Sarcasm and Metaphor Comprehension), models frequently suffer from *Over-Correction Pattern Collapse* and *Generation Degeneration* when processing non-literal text. PragmaProbe-LLM resolves these vulnerabilities by transitioning models from rigid token autocompletion to true pragmatic contextual reasoning.
+**The PUB Benchmark and Framework assessment**
+
+This framework has been developed to target the performance gaps highlighted in the Pragmatics Understanding Benchmark (PUB) (Sravanthi et a;. 2024). As documented in PUB Task 6 (Sarcasm and Metaphor Comprehension), models frequently suffer from Over-Correction Pattern Collapse and Generation Degeneration when processing non-literal text (a statistical finding that remains current as of 2026).
+PragmaProbe-LLM offers a framework to mitigate these challenges by integrating a post-training phase to enhance the model's accuracy with non-literal language. This phase specifically enables relational reasoning based on structured domain knowledge. Through fine-tuning, the framework empowers the model to infer the figurative meaning of unseen concepts by applying learned cross-domain mappings to the surrounding textual context. While RAG serves to mitigate overgeneralization in large-scale deployments, this project instead relies on thorough data curation, utilizing the MIP (Metaphor Identification Procedure), to maintain domain specificity and manage resource constraints. The MIP step focuses the training on the most difficult cases, which refines the models decision boundaries and improves its ability to generelize accurately. 
+A manual analysis of selected sentenses was conducted to evaluate the initial capabilities of the framework. Comprehensive and generalized assessment of the model's metaphor interpretation will require future evaluation against established gold-standard datasets, such as the VU Amstaerdam Metaphor Corpus.
+
 
 ---
 
