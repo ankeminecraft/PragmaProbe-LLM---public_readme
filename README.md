@@ -14,7 +14,7 @@
 
 **Core Objective & Linguistic Scope**
 
-**PragmaProbe-LLM** is a lightweight prototype designed to demonstrate how classical linguistic and pragmatic theories can systematically resolve contextual reasoning errors in pre-trained Large Language Models (LLMs). Specifically, the project targets the **ECONOMY IS WAR** conceptual metaphor framework within financial journalism. 
+**PragmaProbe-LLM** is a lightweight prototype designed to demonstrate how linguistic and pragmatic theories can systematically resolve contextual reasoning errors in pre-trained Large Language Models (LLMs). Specifically, the project targets the **ECONOMY IS WAR** conceptual metaphor framework within financial journalism. 
 
 Pre-trained models frequently suffer from "literal traps"—failing to distinguish between literal physical warfare and metaphorical economic competition, which flouts the Gricean Maxim of Quality (conversational implicature). They rely heavily on statistical patterns and frequency, their inability to interpret nascent or ambiguous metaphors reveals a critical limitation in capturing cross-domain semantic shifts. To overcome this, integrating a structured knowledge graph provides explicit mappings of conceptual domains, allowing the model to ground figurations in relational structures rather than relying solely on surface-level statistical correlations.
 
