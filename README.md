@@ -27,7 +27,7 @@ This framework has been developed to target the performance gaps highlighted in 
 
 PragmaProbe-LLM offers a framework to mitigate these challenges by integrating a post-training phase to enhance the model's accuracy with non-literal language. This phase specifically enables relational reasoning based on structured domain knowledge. Through fine-tuning, the framework empowers the model to infer the figurative meaning of unseen concepts by applying learned cross-domain mappings to the surrounding textual context. While RAG serves to mitigate overgeneralization in large-scale deployments, this project instead relies on thorough data curation, utilizing the MIP (Metaphor Identification Procedure), to maintain domain specificity and manage resource constraints. The MIP step focuses the training on the most difficult cases, which refines the models decision boundaries and improves its ability to generalize accurately. 
 
-A manual analysis of selected sentenses was conducted to evaluate the initial capabilities of the framework. Comprehensive and generalized assessment of the model's metaphor interpretation will require future evaluation against established gold-standard datasets, such as the VU Amstaerdam Metaphor Corpus.
+A manual analysis of selected sentenses was conducted to evaluate the initial capabilities of the framework. Comprehensive and generalized assessment of the model's metaphor interpretation will require future evaluation against established gold-standard datasets, such as the VU Amsterdam Metaphor Corpus.
 
 
 ---
